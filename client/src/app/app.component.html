@@ -1,14 +1,10 @@
 <div class="container">
-  <h2>Subtitle</h2>
-  <app-post-form (onAdd)="updatePosts($event)"></app-post-form>
-  <hr>
-  <app-post *ngFor="let p of posts" [myPost]="p"
-  (onRemove)="removePost($event)">
-    <small *ngIf="p.text.length > 10; else short">Пост длинный</small>
-    <ng-template #short>
-      <small>Пост короткий</small>
-    </ng-template>
-  </app-post>
+  <p>Search:</p>
+  <input type="text" [(ngModel)]="search">
+  <div class="post" *ngFor="let post of posts | filter:search">
+    <h1>{{ post.title }}</h1>
+    <h2>{{ post.text }}</h2>
+  </div>
 </div>
 
 

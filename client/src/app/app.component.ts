@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
-export interface Post {
+export  interface Post {
   title: string
   text: string
-  id?: number
 }
 
 @Component({
@@ -13,21 +12,9 @@ export interface Post {
 })
 export class AppComponent {
   posts: Post[] = [
-    { title: 'Хочу выучить Angular',
-    text: 'Я всё ещё учу компоненты и вообще всё на свете',
-    id: 1,
-    },
-    { title: 'Следующий блок',
-    text: 'Следующий блок будет про директивы и что-то ещё',
-    id: 2,
-    }
+    {title: 'Asus', text: 'Лучший ноутбук'},
+    {title: 'JS', text: 'Лучший язык программирования'},
+    {title: 'MongoDB', text: 'Лучшая База Данных'},
   ];
-  removePost(id: number) {
-    this.posts = this.posts.filter(p=> {
-      return p.id !== id;
-    })
-  }
-  updatePosts(post: Post) {
-    this.posts.unshift(post);
-  }
+  search: string = '';
 }
